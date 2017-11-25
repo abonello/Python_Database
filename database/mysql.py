@@ -56,5 +56,3 @@ class MySQLDatabase(object):
         cursor.close()
 
         return self.tables
-
-
