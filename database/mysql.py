@@ -40,3 +40,21 @@ class MySQLDatabase(object):
         if hasattr(self, 'db'):
             self.db.close()
             print "MySQL Connection Closed."
+
+    def get_available_tables(self):
+        """
+        This method will allow us to see what
+        tables are available to use when we're
+        running our queries.
+        """
+
+        cursor = self.db.cursor()
+        cursor.execute("SHOW TABLES;")
+
+        self.tables = cursor.fetchall()
+
+        cursor.close()
+
+        return self.tables
+
+
